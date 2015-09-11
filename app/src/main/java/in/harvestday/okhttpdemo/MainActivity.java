@@ -1,9 +1,10 @@
 package in.harvestday.okhttpdemo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,7 +12,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        OkHttpUtil.getInstance().init();
+        OkHttpUtil.getInstance().setCookieEnable(true);
+        final TextView text = (TextView) findViewById(R.id.id_text);
+
+        OkHttpUtil.getInstance().getAsync("http://www.baidu.com", new OkHttpCallback<String>() {
+
+            @Override
+            public void onSuccess(String response) {
+                text.setText(response);
+            }
+
+            @Override
+            public void onFailure(String errMsg) {
+
+            }
+        });
+
     }
 
     @Override
