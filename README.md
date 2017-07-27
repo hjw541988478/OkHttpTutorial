@@ -15,3 +15,6 @@ OkHttpUtil.getInstance().getAsync(,,);
 OkHttpUtil.getInstance().postAsync(,,);
 ```
 参数不一样，使用Callback进行回调。
+
+## 博客
+[OkHttp探索使用](http://huangjiawen.cn/android/OkHttp%E6%8E%A2%E7%B4%A2%E4%BD%BF%E7%94%A8/)
